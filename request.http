@@ -7,15 +7,55 @@ POST http://localhost:5000/api/register HTTP/1.1
 Content-Type: application/json
 
 {
-     "id": "15856",
-     "firstName": "Marco",
-     "lastName": "Pasha",
+     "id": "15000",
+     "firstName": "Emre",
+     "lastName": "Kuer",
      "position": "Leiter",
-     "email": "marpashas@milonnn.com",
+     "email": "kurt@milonnn.com",
      "password": "12345678"
 }
 
 ###
+
+//Active token comes from register After activation it saves to database
+
+POST http://localhost:5000/api/active HTTP/1.1
+Content-Type: application/json
+
+{
+     "active_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMTUwMDAiLCJmaXJzdE5hbWUiOiJFbXJlIiwibGFzdE5hbWUiOiJLdWVyIiwicG9zaXRpb24iOiJMZWl0ZXIiLCJlbWFpbCI6Imt1cnRAbWlsb25ubi5jb20iLCJwYXNzd29yZCI6IiQyYiQxMiRXcUMuSmZhUVVGQjJ4Wmxub1MvZTAubFJ3bGRyUE9zREM2UlRVRFNVWDNIdGVXck5RMi5KTyJ9LCJpYXQiOjE2Mzg1MjUzODYsImV4cCI6MTYzODUyNTY4Nn0.YiX6k7hdGHSKL4UE8mMouTwgV7e7WNQxLnKoQ5UbJWo"
+}
+
+###
+
+POST http://localhost:5000/api/login HTTP/1.1
+Content-Type: application/json
+
+{
+     "email": "kurt@milonnn.com",
+     "password": "12345678"
+}
+
+###
+
+// access_token comes from the login 
+
+GET http://localhost:5000/api/refresh_token HTTP/1.1
+Content-Type: application/json
+
+{
+     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1MDAwIiwiaWF0IjoxNjM4NTI5NzkyLCJleHAiOjE2Mzg1MzA2OTJ9.kr3tAAQBwy4KO0AyN6VEaB9HazjNeeMEivZEGaHvuUw"
+}
+
+###
+
+
+// clears the cookies (access token)
+GET http://localhost:5000/api/logout HTTP/1.1
+
+###
+
+
 PUT http://localhost:5000/api/edit/10002 HTTP/1.1
 Content-Type: application/json
 

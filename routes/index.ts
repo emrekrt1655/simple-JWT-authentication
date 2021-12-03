@@ -9,6 +9,10 @@ router.get("/", function (req: Request, res: Response) {
 });
 
 router.post("/register", authController.register);
+router.post("/active", authController.activeAccount)
+router.post("/login", authController.login);
+router.get("/logout", authController.logout);
+router.get("/refresh_token", authController.refreshToken);
 router.get("/users", authController.getUsers);
 router.put("/edit/:id", authController.updateUser);
 router.get("/delete/:id", authController.deleteUser);
