@@ -92,7 +92,7 @@ const authController = {
     try {
     const {email, password} = req.body
 
-    const user = await prisma.user.findUnique({where: {email: req.body.email}})
+    const user = await prisma.user.findUnique({where: {email: email}})
     if (!user) return res.status(400).json({msg: "This account does not exists"})
 
     // if the user exists
